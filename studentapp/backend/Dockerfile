@@ -12,7 +12,7 @@ ADD  https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.t
 
 RUN tar -xvzf apache-tomcat-8.5.99.tar.gz
 
-RUN yum install java -yum
+RUN yum install java -y
 
 WORKDIR /opt/apache-tomcat-8.5.99
 
@@ -24,4 +24,4 @@ ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar lib/my
 
 EXPOSE 8080
 
-CMD "bin/catalina.sh" , "run"]
+CMD ["bin/catalina.sh" , "run"]
