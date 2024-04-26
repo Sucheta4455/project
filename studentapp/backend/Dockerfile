@@ -1,27 +1,14 @@
 FROM centos:7
 
-LABEL APP="Studentapp"
-
-LABEL DevopsEngg="Sucheta"
-
-USER root
-
-WORKDIR /opt
-
-ADD  https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.99/bin/apache-tomcat-8.5.99.tar.gz .
-
-RUN tar -xvzf apache-tomcat-8.5.99.tar.gz
-
-RUN yum install java -y
-
-WORKDIR /opt/apache-tomcat-8.5.99
-
-COPY student.war webapps/student.war
-
-COPY context.xml conf/context.xml
-
+RUN yum install epel-release -y && yum install java-11-openjdk -y
+ADD https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.100/bin/apache-tomcat-8.5.100.tar.gz ./
+RUN tar -xzf apache-tomcat-8.5.100.tar.gz -C /opt
+WORKDIR /opt/apache-tomcat-8.5.100
+COPY ./student.war webapps/student.war
 ADD https://s3-us-west-2.amazonaws.com/studentapi-cit/mysql-connector.jar lib/mysql-connector.jar
+COPY context.xml conf/context.xml
+WORKDIR ./bin
 
 EXPOSE 8080
 
-CMD ["bin/catalina.sh" , "run"]
+CMD ./catalina.sh run
