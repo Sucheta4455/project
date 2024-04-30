@@ -1,12 +1,12 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: backend-deployment
 spec:
   #replicas: 2
   selector:
     matchLabels:
-      app: frontend-deployment
+      app: backend-deployment
   #strategy: 
     #type: RollingUpdate
     #rollingUpdate:
@@ -15,11 +15,11 @@ spec:
   template:
     metadata:
       labels:
-        app: frontend-deployment
+        app: backend-deployment
     spec:
       containers:
-      - name: frontend-deployment
-        image: suchetasodage/frontend-deployment:latest
+      - name: backend-deployment
+        image: suchetasodage/k8s:backend
         resources:
           limits:
             memory: "128Mi"
