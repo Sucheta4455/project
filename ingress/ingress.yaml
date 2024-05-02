@@ -1,0 +1,41 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: myingress
+  labels:
+    name: myingress
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: 
+    http:
+      paths:
+      - pathType: Prefix
+        path: /home
+        backend:
+          service:
+            name: homepage-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /mobile
+        backend:
+          service:
+            name: mobilepage-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /laptop
+        backend:
+          service:
+            name: laptoppage-service
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /cloth
+        backend:
+          service:
+            name: clothpage-service
+            port: 
+              number: 80
