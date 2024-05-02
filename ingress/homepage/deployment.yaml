@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: homeapp
-        image: suchetasodage/k8s:home
+        image: suchetasodage/k8s:homeapp
         resources:
           limits:
             memory: "128Mi"
