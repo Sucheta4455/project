@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: mobileapp
-        image: kuchetasodage/k8s:mobile
+        image: suchetasodage/k8s:mobile
         resources:
           limits:
             memory: "128Mi"
