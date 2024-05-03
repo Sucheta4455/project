@@ -4,8 +4,8 @@ metadata:
   name: myingress
   labels:
     name: myingress
-    annotations:
-      nginx.ingress.kubernetes.io/rewrite-target: /
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
   - host: 
@@ -25,17 +25,5 @@ spec:
             name: mobilepage-service
             port: 
               number: 80
-      - pathType: Prefix
-        path: /laptop
-        backend:
-          service:
-            name: laptoppage-service
-            port: 
-              number: 80
-      - pathType: Prefix
-        path: /cloth
-        backend:
-          service:
-            name: clothpage-service
-            port: 
-              number: 80
+
+      
