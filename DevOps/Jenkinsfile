@@ -1,0 +1,30 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Pull') {
+            steps {
+                git branch: 'main', url: 'https://github.com/rajatpzade/CDEC-b26-b27-b28-b32.git'
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'helloooo samikshaaaaa'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing....'
+            }
+        }
+       stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
+
+
+
+nedZyh-raddaw-0cutni
